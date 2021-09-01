@@ -21,17 +21,20 @@ public class SnakeAndLadder {
         if (option == IS_SNAKE) {
             System.out.println("It's Snake");
 
-            if (position - diceNumber > 0) {
+            if (position - diceNumber > playerPosition) {
                 position = position - diceNumber;
-            } else if (position < 0) {
+            } else if (position < playerPosition) {
                 position = playerPosition;
                 System.out.println("Player moves below zero and starts from Zero");
             }
         } else if (option == IS_LADDER) {
             System.out.println("It's Ladder ");
 
-            if (position + diceNumber <= 100) {
+            if (position + diceNumber <= WINNING_POSITION) {
                 position = position + diceNumber;
+            }else if (position > WINNING_POSITION) {
+                position = WINNING_POSITION;
+                System.out.println("Player moves above 100 and stoped");
             }
         } else{
             System.out.println("No play");
